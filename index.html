@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Poster - Sekolah TJK A</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+
+    <!-- Main Poster Section -->
+    <div class="poster-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="header-content">
+                <h1 class="main-title">
+                    <span class="word">Selamat</span>
+                    <span class="word">Datang</span>
+                </h1>
+                <p class="subtitle">Teknik Jaringan Komputer A</p>
+                <div class="divider"></div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-icon">📅</div>
+                <h3>Jadwal Kelas</h3>
+                <p>Lihat jadwal pembelajaran terkini</p>
+                <img src="jadwal.png" alt="jadwal">
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-icon">🎉</div>
+                <h3>Event Spesial</h3>
+                <p>Perayaan Idul Adha Bersama</p>
+                <img src="idul adha;'.png" alt="event">
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>Struktur Kelas</h3>
+                <p>Organisasi dan pembagian tugas</p>
+                <img src="struktur kelas.png" alt="struktur kelas">
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <p>🌟 Bersama Membangun Masa Depan Digital 🌟</p>
+        </div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+    </div>
+
+    <!-- Image Modal/Lightbox -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Full Size Image">
+        <div id="caption"></div>
+    </div>
+
+    <script>
+        // Get modal elements
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const captionText = document.getElementById('caption');
+        const closeBtn = document.querySelector('.close');
+
+        // Get all card images
+        const images = document.querySelectorAll('.card img');
+
+        // Add click event to each image
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'block';
+                modalImg.src = this.src;
+                captionText.textContent = this.alt;
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        // Close modal when X is clicked
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
